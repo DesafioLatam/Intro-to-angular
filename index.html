@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+</head>
+<body ng-app="Blog">
+	<div class="container">
+		<header class="page-header">
+			<h1>
+				Hello, Blog !
+			</h1>
+		</header>
+
+		<div class="row">
+			<div class="col-md-4">
+				menu
+			</div>
+
+			<div class="col-md-8" ng-controller="PostController">
+				<article class="blog-post" ng-repeat="p in contents">
+					<h2> {{p.title}} </h2>
+					<hr>
+					<section class="content">
+						<p> {{p.content}} </p>
+					</section>
+
+				</article>
+				
+			<hr>
+			<form class="form">
+				<input type="text" ng-model="post_signature.title" class="form-control">
+				<textarea type="text" ng-model="post_signature.content" class="form-control"></textarea>
+				<button ng-click="add_post(post_signature)" class="btn btn-primary"> Enviar </button>
+			</form>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script src="app.js"> </script>
+</body>
+</html>
